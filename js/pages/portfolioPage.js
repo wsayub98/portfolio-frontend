@@ -1,9 +1,16 @@
+import { renderHeader } from "../components/portfolio/header.js";
 import { getPortfolio } from "../services/portfolioService.js";
 
-export function initPortfolioPage() {
-    // call service 
-    const data = getPortfolio();
+export async function initPortfolioPage() {
+    try {
+        const header = document.getElementById("header-name");
+        // call service 
+        const data = await getPortfolio();
 
-    console.log("Data: ", data);
-    return data;
+        const htmlHeader = renderHeader(data);
+
+        header.innerHTML = htmlHeader;
+    } catch (error) {
+        header.innerHTML = `<p>Error</p>`;
+    }
 }

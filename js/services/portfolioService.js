@@ -1,8 +1,8 @@
 import { fetchPortfolio } from "../api/portfolio.js";
 
-export function getPortfolio() {
+export async function getPortfolio() {
     // call api 
-    const data = fetchPortfolio()
+    const data = await fetchPortfolio()
     return data
     // return [
     //     { name: "Project A" },
