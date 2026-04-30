@@ -1,0 +1,142 @@
+@font-face {
+  font-family: "DepartureMono";
+  src: url("/fonts/DepartureMonoNerdFont-Regular.woff2") format("woff2");
+}
+
+html {
+  background-color: lawngreen;
+  min-height: 100%;
+}
+
+body {
+  font-family: "DepartureMono", monospace;
+  /* max-width: 800px; */
+  /* width: 100%; */
+  /* margin: 0 auto; */
+  background-color: white;
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+}
+
+header,
+main,
+footer,
+.container {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  border-top: 2px solid #e5e7eb;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-wrapper,
+.project-wrapper,
+.stack-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.experience-wrapper {
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.hero-text {
+  flex: 2;
+  max-width: 500px;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: end;
+}
+
+.project-list {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card {
+  max-width: 384px;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-image {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.5 rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.025em;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: #374151;
+  line-height: 1.5;
+}
+
+.experience-card {
+  margin-bottom: 1rem;
+  max-width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 10px;
+}
+
+.projects {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+  margin-top: 0.5rem;
+}
+
+.activities {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+
+.footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
