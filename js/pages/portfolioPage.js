@@ -1,16 +1,20 @@
 import { renderHeader } from "../components/portfolio/header.js";
+import { renderIndex } from "../components/portfolio/index.js";
 import { getPortfolio } from "../services/portfolioService.js";
+import { store } from "../utils/store.js";
 
 export async function initPortfolioPage() {
+    const app = document.getElementById("app")
     try {
-        const header = document.getElementById("header-name");
+        // const header = document.getElementById("header-name");
         // call service 
         const data = await getPortfolio();
-
-        const htmlHeader = renderHeader(data);
-
-        header.innerHTML = htmlHeader;
+        store.portfolio = data;
+        // const htmlHeader = renderHeader(data);
+        const html = await renderIndex(store.portfolio)
+        app.innerHTML = html;
     } catch (error) {
-        header.innerHTML = `<p>Error</p>`;
+        console.log(error)
+        app.innerHTML = `<p>Error</p>`;
     }
 }
