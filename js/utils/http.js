@@ -13,7 +13,6 @@ export async function request(method, path, body) {
         });
 
         const result = await response.json();
-        console.log(result)
         if (!result.status) {
             throw result.error
         }
