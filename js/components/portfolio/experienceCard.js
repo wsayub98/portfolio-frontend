@@ -1,33 +1,48 @@
 export async function renderExpCard(data) {
     const html = await data.map((company) => {
+        const tasks = listTasks(company.responsibilities);
+        const works = displayWorks(company.projects);
+
+
         return `
 <div class="experience-card">
     <h3>${company.name} - ${company.role}</h3>
-    <div class="reponsibilities" style="border: 1px solid green">
-        <ul class="activities" style="border: 1px solid red">
-          <li style="border: 1px solid blue">Developed</li>
-          <li style="border: 1px solid yellowgreen">setup</li>
-          <li style="border: 1px solid orchid">Built</li>
+    <div class="responsibilities">
+        <ul class="activities">
+            ${tasks}
         </ul>
-        </div>
-        <div class="projects">
-        <div class="project-thumb">
-          <img
-            src="https://unsplash.com"
-            alt="Product"
-            class="card-image"
-          />
-        </div>
-        <div class="project-thumb">
-          <img
-            src="https://unsplash.com"
-            alt="Product"
-            class="card-image"
-          />
-        </div>
+    </div>
+    <div class="projects">
+        ${works}
     </div>
 </div>
 `
+    }).join("");
+
+    return html;
+}
+
+function listTasks(tasks) {
+    const html = tasks.map((task) => {
+        return `
+          <li>${task}</li>
+     `;
+    }).join("");
+
+    return html;
+}
+
+function displayWorks(works) {
+    const html = works.map((work) => {
+        return `
+        <div class="project-thumb">
+          <img
+            src="/public/images/projects/${work}"
+            alt="Product"
+            class="card-image"
+          />
+        </div>
+    `;
     }).join("");
 
     return html;
