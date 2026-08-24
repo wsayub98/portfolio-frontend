@@ -1,9 +1,12 @@
+import { PROD_URL } from "./config";
+
 const BASE_URL = "http://localhost:8000"
+const PROD = PROD_URL;
 const API_V1 = "/api/v1"
 
 export async function request(method, path, body) {
     try {
-        var url = BASE_URL + API_V1 + path;
+        var url = PROD + API_V1 + path;
         const response = await fetch(url, {
             method: method,
             headers: {
