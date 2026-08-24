@@ -1,5 +1,6 @@
+import { initProjectSlider } from "../behaviors/slider.js";
+import { toggle } from "../behaviors/themeToggle.js";
 import { renderIndex } from "../components/portfolio/index.js";
-import { initProjectSlider } from "../components/portfolio/slider.js";
 import { getPortfolio } from "../services/portfolioService.js";
 import { store } from "../utils/store.js";
 
@@ -14,8 +15,11 @@ export async function initPortfolioPage() {
         const html = await renderIndex(store.portfolio);
         app.innerHTML = html;
 
+        // Toggle dark mode.
+        toggle();
+
         // Prev & Next btn function.
-        initProjectSlider();
+        await initProjectSlider();
 
         // Title in head tag.
         document.title = `Portfolio - ${store.portfolio.name}`;

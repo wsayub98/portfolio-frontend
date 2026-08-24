@@ -14,7 +14,7 @@ export async function initProjectSlider() {
         const cardWidth = cards[0].getBoundingClientRect().width;
         const gap = 10;
         const offset = currentIndex * (cardWidth + gap);
-        list.style.transform = `translateX(-${offset}px)`
+        list.style.transform = `translateX(-${offset}px)`;
 
         prevBtn.disabled = currentIndex === 0;
         nextBtn.disabled = currentIndex >= maxIndex;

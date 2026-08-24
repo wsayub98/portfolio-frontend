@@ -1,13 +1,9 @@
 import { renderExpCard } from "./experienceCard.js";
 import { renderStackCard } from "./stackCard.js";
 import { renderProjCard } from "./projectCard.js";
-// import { initProjectSlider } from "./slider.js";
 
 export async function renderIndex(data) {
-    // console.log(data.name)
-
-    const projCardHtml = await renderProjCard();
-    // await initProjectSlider();
+    const projCardHtml = await renderProjCard(data.projects);
     const expCardHtml = await renderExpCard(data.companies);
     const stackCardHtml = await renderStackCard(data.skills);
     // loop data.companies/experience card, map join html element.
@@ -17,10 +13,29 @@ export async function renderIndex(data) {
       <div class="nav">
         <div class="logo" id="header-name">${data.name}</div>
         <nav>
-          <a href="#">Projects</a>
-          <a href="#">Experience</a>
-          <a href="#">Stacks</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#technologies">Stacks</a>
           <a href="#">Blogs</a>
+          <button id="themeToggle" class="theme-toggle" title="Toggle Dark Mode">
+            <!-- Moon icon (shown in light mode — click to go dark) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-moon">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+              </svg>
+
+              <!-- Sun icon (shown in dark mode — click to go light) -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-sun">
+                <circle cx="12" cy="12" r="5"/>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="18.36"/>
+              </svg>
+          </button>
         </nav>
       </div>
     </div>
@@ -76,7 +91,7 @@ export async function renderIndex(data) {
         ${expCardHtml}
       </div>
     </section>
-    <section class="stacks">
+    <section class="stacks" id="technologies">
       <h2>Technologies</h2>
       <div class="stack-wrapper grid grid-cols-5 gap-3">
         ${stackCardHtml}

@@ -4,6 +4,25 @@
     format("woff2");
 }
 
+:root {
+  --bg-color: white;
+  --text-color: #111827;
+  --text-muted: #374151;
+  --border-color: #e5e7eb;
+  --card-bg: #ffffff;
+  --hover-color: #f3f4f6;
+}
+
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #f3f4f6;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --card-bg: #1f2937;
+  --hover-bg-color: #1f2532;
+    --hover-text-color: #f3f4f6;
+}
+
 html {
   background-color: lawngreen;
   min-height: 100%;
@@ -14,9 +33,45 @@ body {
   /* max-width: 800px; */
   /* width: 100%; */
   /* margin: 0 auto; */
-  background-color: white;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   /* margin-left: auto; */
   /* margin-right: auto; */
+}
+
+.icon-sun {
+    display: none;
+}
+
+.icon-moon {
+    transform: translateY(1px);
+}
+
+[data-theme="dark"] .icon-moon {
+    display: none;
+}
+
+[data-theme="dark"] .icon-sun {
+    display: block;
+}
+
+.theme-toggle {
+    /* background: none; */
+    position: fixed;
+    top: 5px;
+    right: 20px;
+    z-index: 100;
+}
+
+/* .theme-toggle svg { */
+/*     display: block; */
+/* } */
+
+.experience-card,
+.project-card,
+.stack-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
 }
 
 header,
@@ -76,7 +131,7 @@ footer {
 }
 
 .hero-desc {
-  color: #374151;
+  color: var(--text-muted);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -95,15 +150,15 @@ footer {
   height: 40px;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  color: #111827;
-  background-color: #ffffff;
+  color: var(--text-color);
+  background-color: var(--bg-color);
   transition:
     background-color 0.15s ease,
     transform 0.1s ease;
 }
 
 .icon-btn:hover {
-  background-color: #f3f4f6;
+  background-color: var(--hover-bg-color);
   transform: translateY(-1px);
 }
 
@@ -161,7 +216,6 @@ footer {
 .project-card {
   flex: 0 0 calc(50% - 5px);
   max-width: 384px;
-  background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -184,21 +238,20 @@ footer {
   margin: 0 0 0.5rem 0;
   font-size: 1.5 rem;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-color);
   letter-spacing: -0.025em;
 }
 
 .card-text {
   margin-bottom: 1rem;
   font-weight: 400;
-  color: #374151;
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
 .experience-card {
   margin-bottom: 1rem;
   max-width: 100%;
-  background-color: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -217,7 +270,6 @@ footer {
   padding: 1.25rem 1rem;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
-  background-color: #ffffff;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -229,11 +281,11 @@ footer {
 }
 
 .stack-card p {
-    margin: 0;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #374151;
-    letter-spacing: 0.02rem;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02rem;
 }
 
 .projects {
@@ -254,7 +306,7 @@ footer {
 }
 
 .activities li {
-  color: #374151;
+  color: var(--text-muted);
   line-height: 1.5;
   font-size: 0.95rem;
 }
@@ -283,9 +335,9 @@ footer {
 }
 
 .footer-link {
-    display: flex;
-    gap: 14px;
-    align-items: center;
+  display: flex;
+  gap: 14px;
+  align-items: center;
 }
 
 .footer-icon {
@@ -295,5 +347,5 @@ footer {
 }
 
 .footer-icon:hover {
-  color: #111827;
+  color: var(--hover-text-color);
 }
