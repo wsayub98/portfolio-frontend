@@ -1,4 +1,4 @@
-import { PROD_URL } from "./config";
+import { PROD_URL } from "./config.js";
 
 const BASE_URL = "http://localhost:8000"
 const PROD = PROD_URL;
